@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    19:28:15 12/03/2012 
+-- Create Date:    19:33:58 08/12/2013 
 -- Design Name: 
 -- Module Name:    vga - Behavioral 
 -- Project Name: 
@@ -51,7 +51,7 @@ end vga;
 
 architecture Behavioral of vga is
 
--- Estas son la señales de sincronismo, y la componente horizontal está multiplicada
+-- Estas son la señales de sincronismo en binario, y la componente horizontal está multiplicada
 -- por dos para adpatarse a la frecuencia del monitor
 
 	constant AH : STD_LOGIC_VECTOR (10 downto 0) := "10011111111";
@@ -88,7 +88,7 @@ BEGIN
 	if reset = '1' then 	
 		cuentaV <= "00000000000"; 
 	elsif clk'event and clk= '1' then 
-		if cuentaH = DH then 
+		if cuentaH = "11000111111" then 
 			if cuentaV < DV then
 				cuentaV <= cuentaV + 1;
 			else 
